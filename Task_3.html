@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Registration Form</title>
+	<style>
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		input[type=text], input[type=email], input[type=password] {
+			margin-bottom: 20px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 2px #ccc;
+			width: 300px;
+			font-size: 16px;
+			color: #333;
+			background-color: #f9f9f9;
+		}
+		input[type=submit] {
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 2px #ccc;
+			width: 150px;
+			background-color: #4CAF50;
+			color: #fff;
+			cursor: pointer;
+		}
+		h2 {
+			margin-top: 50px;
+			text-align: center;
+		}
+		table {
+			margin-top: 50px;
+			border-collapse: collapse;
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		td, th {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body>
+	<h2>Student Registration Form</h2>
+	<form onsubmit="displayData(event)">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		<label for="phone">Phone:</label>
+		<input type="text" id="phone" name="phone" required>
+		<label for="address">Address:</label>
+		<input type="text" id="address" name="address" required>
+		<label for="major">Major:</label>
+		<input type="text" id="major" name="major" required>
+		<input type="submit" value="Submit">
+	</form>
+	<table id="dataTable">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th>Major</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<script>
+		function displayData(event) {
+			event.preventDefault();
+			const name = document.getElementById("name").value;
+			const email = document.getElementById("email").value;
+			const phone = document.getElementById("phone").value;
+			const address = document.getElementById("address").value;
+			const major = document.getElementById("major").value;
+
+			const tableRef = document.getElementById("dataTable").getElementsByTagName("tbody")[0];
+			const newRow = tableRef.insertRow();
+
+			const nameCell = newRow.insertCell(0);
+			const emailCell = newRow.insertCell(1);
+			const phoneCell = newRow.insertCell(2);
+            const addressCell = newRow.insertCell(3);
+const majorCell = newRow.insertCell(4);
+
+nameCell.innerHTML = name;
+		emailCell.innerHTML = email;
+		phoneCell.innerHTML = phone;
+		addressCell.innerHTML = address;
+		majorCell.innerHTML = major;
+
+		document.getElementById("name").value = "";
+		document.getElementById("email").value = "";
+		document.getElementById("phone").value = "";
+		document.getElementById("address").value = "";
+		document.getElementById("major").value = "";
+	}
+</script>
+</body>
+</html>
